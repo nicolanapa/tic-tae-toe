@@ -1,7 +1,5 @@
 const displayBoard = (function() {
     let partContainer = document.querySelector("#container");
-    
-    
     for ( let i = 1; i <= 9; i++ ) {
         let part = document.createElement("div");
         part.classList.add("block");
