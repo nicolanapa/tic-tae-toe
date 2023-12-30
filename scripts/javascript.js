@@ -127,7 +127,7 @@ function winAlgorithm() {
     }
 
     function xoWin() {
-        if ( gameboard.game[0][0] == xMarker && gameboard.game[0][1] == xMarker && gameboard.game[0][2] == xMarker ) {
+        /*X*/if ( gameboard.game[0][0] == xMarker && gameboard.game[0][1] == xMarker && gameboard.game[0][2] == xMarker ) {
             console.log("X ha vinto");
         }
         else if ( gameboard.game[1][0] == xMarker && gameboard.game[1][1] == xMarker && gameboard.game[1][2] == xMarker ) {
@@ -135,18 +135,49 @@ function winAlgorithm() {
         }
         else if ( gameboard.game[2][0] == xMarker && gameboard.game[2][1] == xMarker && gameboard.game[2][2] == xMarker ) {
             console.log("X ha vinto");
+        }// Verticale
+        else if ( gameboard.game[0][0] == xMarker && gameboard.game[1][0] == xMarker && gameboard.game[2][0] == xMarker ) {
+            console.log("X ha vinto");
         }
-        else if ( gameboard.game[0][0] == oMarker && gameboard.game[0][1] == oMarker && gameboard.game[0][2] == oMarker ) {
-            console.log("O ha vinto");
+        else if ( gameboard.game[0][1] == xMarker && gameboard.game[1][1] == xMarker && gameboard.game[2][1] == xMarker ) {
+            console.log("X ha vinto");
+        }
+        else if ( gameboard.game[0][2] == xMarker && gameboard.game[1][2] == xMarker && gameboard.game[2][2] == xMarker ) {
+            console.log("X ha vinto");
+        }//Diagonale
+        else if ( gameboard.game[0][0] == xMarker && gameboard.game[1][1] == xMarker && gameboard.game[2][2] == xMarker ) {
+            console.log("X ha vinto");
+        }
+        else if ( gameboard.game[0][2] == xMarker && gameboard.game[1][1] == xMarker && gameboard.game[2][0] == xMarker ) {
+            console.log("X ha vinto");
+        }
+
+        /*O*/if ( gameboard.game[0][0] == oMarker && gameboard.game[0][1] == oMarker && gameboard.game[0][2] == oMarker ) {
+            console.log("X ha vinto");
         }
         else if ( gameboard.game[1][0] == oMarker && gameboard.game[1][1] == oMarker && gameboard.game[1][2] == oMarker ) {
-            console.log("O ha vinto");
+            console.log("X ha vinto");
         }
         else if ( gameboard.game[2][0] == oMarker && gameboard.game[2][1] == oMarker && gameboard.game[2][2] == oMarker ) {
-            console.log("O ha vinto");
+            console.log("X ha vinto");
+        }// Verticale
+        else if ( gameboard.game[0][0] == oMarker && gameboard.game[1][0] == oMarker && gameboard.game[2][0] == oMarker ) {
+            console.log("X ha vinto");
         }
+        else if ( gameboard.game[0][1] == oMarker && gameboard.game[1][1] == oMarker && gameboard.game[2][1] == oMarker ) {
+            console.log("X ha vinto");
+        }
+        else if ( gameboard.game[0][2] == oMarker && gameboard.game[1][2] == oMarker && gameboard.game[2][2] == oMarker ) {
+            console.log("X ha vinto");
+        }//Diagonale
+        else if ( gameboard.game[0][0] == oMarker && gameboard.game[1][1] == oMarker && gameboard.game[2][2] == oMarker ) {
+            console.log("X ha vinto");
+        }
+        else if ( gameboard.game[0][2] == oMarker && gameboard.game[1][1] == oMarker && gameboard.game[2][0] == oMarker ) {
+            console.log("X ha vinto");
+        }
+
         else {
-            //console.log("Pareggio");
             checkBoard();
         }
     }
@@ -157,6 +188,5 @@ function winAlgorithm() {
             console.log("Pareggio");
         }
     }
-    //checkBoard();
     xoWin();
 }
