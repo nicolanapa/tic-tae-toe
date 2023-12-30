@@ -8,4 +8,5 @@
 #container > .block {
     border: 3px solid rgb(30, 30, 30);
     padding: 10px;
+    font-size: 26px;
 }
