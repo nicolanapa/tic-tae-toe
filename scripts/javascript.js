@@ -44,38 +44,72 @@ function winAlgorithm() {
                 gameboard.game[0][0] = xMarker;
             }
             else if ( placement === "2" ) {
-                gameboard.gameRow1[0][1] = xMarker;
+                gameboard.game[0][1] = xMarker;
             }
             else if ( placement === "3" ) {
-                gameboard.gameRow1[0][2] = xMarker;
+                gameboard.game[0][2] = xMarker;
             }
         }
         if ( placementRow == "2" ) {
             if ( placement === "1" ) {
-                gameboard.gameRow1[1][0] = xMarker;
+                gameboard.game[1][0] = xMarker;
             }
             else if ( placement === "2" ) {
-                gameboard.gameRow1[1][1] = xMarker;
+                gameboard.game[1][1] = xMarker;
             }
             else if ( placement === "3" ) {
-                gameboard.gameRow1[1][2] = xMarker;
+                gameboard.game[1][2] = xMarker;
             }
         }
         if ( placementRow == "3" ) {
             if ( placement === "1" ) {
-                gameboard.gameRow1[2][0] = xMarker;
+                gameboard.game[2][0] = xMarker;
             }
             else if ( placement === "2" ) {
-                gameboard.gameRow1[2][1] = xMarker;
+                gameboard.game[2][1] = xMarker;
             }
             else if ( placement === "3" ) {
-                gameboard.gameRow1[2][2] = xMarker;
+                gameboard.game[2][2] = xMarker;
             }
         }
     }
 
     function oPlayer() {
-
+        let placementRow = prompt("Scegli la riga (1, 2, 3)", "1");
+        let placement = prompt("Scegli la posizione (1, 2, 3)", "1");
+        if ( placementRow == "1" ) {
+            if ( placement === "1" ) {
+                gameboard.game[0][0] = oMarker;
+            }
+            else if ( placement === "2" ) {
+                gameboard.game[0][1] = oMarker;
+            }
+            else if ( placement === "3" ) {
+                gameboard.game[0][2] = oMarker;
+            }
+        }
+        if ( placementRow == "2" ) {
+            if ( placement === "1" ) {
+                gameboard.game[1][0] = oMarker;
+            }
+            else if ( placement === "2" ) {
+                gameboard.game[1][1] = oMarker;
+            }
+            else if ( placement === "3" ) {
+                gameboard.game[1][2] = oMarker;
+            }
+        }
+        if ( placementRow == "3" ) {
+            if ( placement === "1" ) {
+                gameboard.game[2][0] = oMarker;
+            }
+            else if ( placement === "2" ) {
+                gameboard.game[2][1] = oMarker;
+            }
+            else if ( placement === "3" ) {
+                gameboard.game[2][2] = oMarker;
+            }
+        }
     }
 
     function xoWin() {
@@ -90,7 +124,9 @@ function winAlgorithm() {
         }
     }
     function checkBoard() {
-        if ( gameboard.gameRow1[0] != nothing && gameboard.gameRow1[1] != nothing && gameboard.gameRow1[2] != nothing ) {
+        if ( gameboard.game[0][0] != nothing && gameboard.game[0][1] != nothing && gameboard.game[0][2] != nothing && 
+             gameboard.game[1][0] != nothing && gameboard.game[1][1] != nothing && gameboard.game[1][2] != nothing && 
+             gameboard.game[2][0] != nothing && gameboard.game[2][1] != nothing && gameboard.game[2][2] != nothing ) {
             xoWin();
         }
     }
