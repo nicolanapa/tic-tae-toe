@@ -12,29 +12,87 @@ const xMarker = "X";
 const oMarker = "O";
 
 let gameboard = {
-    gameRow1: [nothing, nothing, nothing],
-    gameRow2: [nothing, nothing, nothing],
-    gameRow3: [nothing, nothing, nothing],
+    //gameRow1: [nothing, nothing, nothing],
+    //gameRow2: [nothing, nothing, nothing],
+    //gameRow3: [nothing, nothing, nothing],
+    game: [[nothing, nothing, nothing], [nothing, nothing, nothing], [nothing, nothing, nothing]],
 };
 
 function Player(name) {
     this.name = name;
 }
 
-let X = new Player("X");
-let O = new Player("O");
+// let X = new Player("X");
+// let O = new Player("O");
 
 function winAlgorithm() {
     gameboard;
-    let placement = prompt("Scegli il posto di X o O (X1, X2, X3 / O1, O2, O3)");
-    if ( placement === "X1" ) {
-        gameboard.gameRow1[0] = xMarker;
+    let playerDecision = prompt("Scegliere se sei X o O", "X");
+    
+    if ( playerDecision == "X" ) {
+        xPlayer();
     }
-    if ( placement === "X2" ) {
-        gameboard.gameRow1[1] = xMarker;
-    }
-    if ( placement === "X3" ) {
-        gameboard.gameRow1[2] = xMarker;
+    else {
+        oPlayer();
     }
 
+    function xPlayer() {
+        let placementRow = prompt("Scegli la riga (1, 2, 3)", "1");
+        let placement = prompt("Scegli la posizione (1, 2, 3)", "1");
+        if ( placementRow == "1" ) {
+            if ( placement === "1" ) {
+                gameboard.game[0][0] = xMarker;
+            }
+            else if ( placement === "2" ) {
+                gameboard.gameRow1[0][1] = xMarker;
+            }
+            else if ( placement === "3" ) {
+                gameboard.gameRow1[0][2] = xMarker;
+            }
+        }
+        if ( placementRow == "2" ) {
+            if ( placement === "1" ) {
+                gameboard.gameRow1[1][0] = xMarker;
+            }
+            else if ( placement === "2" ) {
+                gameboard.gameRow1[1][1] = xMarker;
+            }
+            else if ( placement === "3" ) {
+                gameboard.gameRow1[1][2] = xMarker;
+            }
+        }
+        if ( placementRow == "3" ) {
+            if ( placement === "1" ) {
+                gameboard.gameRow1[2][0] = xMarker;
+            }
+            else if ( placement === "2" ) {
+                gameboard.gameRow1[2][1] = xMarker;
+            }
+            else if ( placement === "3" ) {
+                gameboard.gameRow1[2][2] = xMarker;
+            }
+        }
+    }
+
+    function oPlayer() {
+
+    }
+
+    function xoWin() {
+        if ( gameboard.gameRow1[0] == xMarker && gameboard.gameRow1[1] == xMarker && gameboard.gameRow1[2] == xMarker ) {
+            console.log("X ha vinto");
+        }
+        else if ( gameboard.gameRow1[0] == oMarker && gameboard.gameRow1[1] == oMarker && gameboard.gameRow1[2] == oMarker ) {
+            console.log("O ha vinto");
+        }
+        else {
+            console.log("Pareggio");
+        }
+    }
+    function checkBoard() {
+        if ( gameboard.gameRow1[0] != nothing && gameboard.gameRow1[1] != nothing && gameboard.gameRow1[2] != nothing ) {
+            xoWin();
+        }
+    }
+    checkBoard();
 }
