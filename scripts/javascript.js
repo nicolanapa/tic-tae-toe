@@ -5,6 +5,7 @@ const displayBoard = (function() {
         part.classList.add("block");
         partContainer.appendChild(part);
     }
+
 })();
 
 const nothing = "vuoto";
@@ -18,9 +19,9 @@ let gameboard = {
     game: [[nothing, nothing, nothing], [nothing, nothing, nothing], [nothing, nothing, nothing]],
 };
 
-function Player(name) {
+/*function Player(name) {
     this.name = name;
-}
+}*/
 
 // let X = new Player("X");
 // let O = new Player("O");
@@ -37,38 +38,41 @@ function winAlgorithm() {
     }
 
     function xPlayer() {
-        let placementRow = prompt("Scegli la riga (1, 2, 3)", "1");
-        let placement = prompt("Scegli la posizione (1, 2, 3)", "1");
-        if ( placementRow == "1" ) {
-            if ( placement === "1" ) {
+        let placementRow = prompt("Scegli la riga (1, 2, 3)", 1);
+        placementRow = Number(placementRow);
+        let placement = prompt("Scegli la posizione (1, 2, 3)", 1);
+        placement = Number(placement);
+        checkIfNothing(placementRow, placement);
+        if ( placementRow === 1 ) {
+            if ( placement === 1 ) {
                 gameboard.game[0][0] = xMarker;
             }
-            else if ( placement === "2" ) {
+            else if ( placement === 2 ) {
                 gameboard.game[0][1] = xMarker;
             }
-            else if ( placement === "3" ) {
+            else if ( placement === 3 ) {
                 gameboard.game[0][2] = xMarker;
             }
         }
-        if ( placementRow == "2" ) {
-            if ( placement === "1" ) {
+        if ( placementRow === 2 ) {
+            if ( placement === 1 ) {
                 gameboard.game[1][0] = xMarker;
             }
-            else if ( placement === "2" ) {
+            else if ( placement === 2 ) {
                 gameboard.game[1][1] = xMarker;
             }
-            else if ( placement === "3" ) {
+            else if ( placement === 3 ) {
                 gameboard.game[1][2] = xMarker;
             }
         }
-        if ( placementRow == "3" ) {
-            if ( placement === "1" ) {
+        if ( placementRow === 3 ) {
+            if ( placement === 1 ) {
                 gameboard.game[2][0] = xMarker;
             }
-            else if ( placement === "2" ) {
+            else if ( placement === 2 ) {
                 gameboard.game[2][1] = xMarker;
             }
-            else if ( placement === "3" ) {
+            else if ( placement === 3 ) {
                 gameboard.game[2][2] = xMarker;
             }
         }
@@ -76,59 +80,83 @@ function winAlgorithm() {
 
     function oPlayer() {
         let placementRow = prompt("Scegli la riga (1, 2, 3)", "1");
+        placementRow = Number(placementRow);
         let placement = prompt("Scegli la posizione (1, 2, 3)", "1");
-        if ( placementRow == "1" ) {
-            if ( placement === "1" ) {
+        placement = Number(placement);
+        checkIfNothing(placementRow, placement);
+        if ( placementRow === 1 ) {
+            if ( placement === 1 ) {
                 gameboard.game[0][0] = oMarker;
             }
-            else if ( placement === "2" ) {
+            else if ( placement === 2 ) {
                 gameboard.game[0][1] = oMarker;
             }
-            else if ( placement === "3" ) {
+            else if ( placement === 3 ) {
                 gameboard.game[0][2] = oMarker;
             }
         }
-        if ( placementRow == "2" ) {
-            if ( placement === "1" ) {
+        if ( placementRow == 2 ) {
+            if ( placement === 1 ) {
                 gameboard.game[1][0] = oMarker;
             }
-            else if ( placement === "2" ) {
+            else if ( placement === 2 ) {
                 gameboard.game[1][1] = oMarker;
             }
-            else if ( placement === "3" ) {
+            else if ( placement === 3 ) {
                 gameboard.game[1][2] = oMarker;
             }
         }
-        if ( placementRow == "3" ) {
-            if ( placement === "1" ) {
+        if ( placementRow === 3 ) {
+            if ( placement === 1 ) {
                 gameboard.game[2][0] = oMarker;
             }
-            else if ( placement === "2" ) {
+            else if ( placement === 2 ) {
                 gameboard.game[2][1] = oMarker;
             }
-            else if ( placement === "3" ) {
+            else if ( placement === 3 ) {
                 gameboard.game[2][2] = oMarker;
             }
         }
     }
 
+    function checkIfNothing(row, column) {
+        if ( gameboard.game[(row - 1)][(column - 1)] != nothing ) {
+            alert("Non puoi cambiare un marker gia messo! Adesso dovrai rimetterlo in una posizione vuota");
+            winAlgorithm();
+        }
+    }
+
     function xoWin() {
-        if ( gameboard.gameRow1[0] == xMarker && gameboard.gameRow1[1] == xMarker && gameboard.gameRow1[2] == xMarker ) {
+        if ( gameboard.game[0][0] == xMarker && gameboard.game[0][1] == xMarker && gameboard.game[0][2] == xMarker ) {
             console.log("X ha vinto");
         }
-        else if ( gameboard.gameRow1[0] == oMarker && gameboard.gameRow1[1] == oMarker && gameboard.gameRow1[2] == oMarker ) {
+        else if ( gameboard.game[1][0] == xMarker && gameboard.game[1][1] == xMarker && gameboard.game[1][2] == xMarker ) {
+            console.log("X ha vinto");
+        }
+        else if ( gameboard.game[2][0] == xMarker && gameboard.game[2][1] == xMarker && gameboard.game[2][2] == xMarker ) {
+            console.log("X ha vinto");
+        }
+        else if ( gameboard.game[0][0] == oMarker && gameboard.game[0][1] == oMarker && gameboard.game[0][2] == oMarker ) {
+            console.log("O ha vinto");
+        }
+        else if ( gameboard.game[1][0] == oMarker && gameboard.game[1][1] == oMarker && gameboard.game[1][2] == oMarker ) {
+            console.log("O ha vinto");
+        }
+        else if ( gameboard.game[2][0] == oMarker && gameboard.game[2][1] == oMarker && gameboard.game[2][2] == oMarker ) {
             console.log("O ha vinto");
         }
         else {
-            console.log("Pareggio");
+            //console.log("Pareggio");
+            checkBoard();
         }
     }
     function checkBoard() {
         if ( gameboard.game[0][0] != nothing && gameboard.game[0][1] != nothing && gameboard.game[0][2] != nothing && 
              gameboard.game[1][0] != nothing && gameboard.game[1][1] != nothing && gameboard.game[1][2] != nothing && 
              gameboard.game[2][0] != nothing && gameboard.game[2][1] != nothing && gameboard.game[2][2] != nothing ) {
-            xoWin();
+            console.log("Pareggio");
         }
     }
-    checkBoard();
+    //checkBoard();
+    xoWin();
 }
