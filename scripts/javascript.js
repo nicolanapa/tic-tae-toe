@@ -3,7 +3,12 @@ const displayBoard = (function() {
     for ( let i = 1; i <= 9; i++ ) {
         let part = document.createElement("div");
         part.classList.add("block");
+        part.setAttribute("id", "blockId");
         partContainer.appendChild(part);
+        part.addEventListener("click", () => {
+            domGame();
+            winAlgorithm();
+        });
     }
 
 })();
@@ -189,4 +194,8 @@ function winAlgorithm() {
         }
     }
     xoWin();
+}
+
+function domGame() {
+    
 }
