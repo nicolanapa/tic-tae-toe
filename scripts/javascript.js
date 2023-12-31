@@ -8,8 +8,7 @@ const displayBoard = (function() {
         logicalBoard[i - 1] = part;
         partContainer.appendChild(part);
         part.addEventListener("click", () => {
-            domGame();
-            winAlgorithm();
+            return winAlgorithm(part)
         });
     }
 })();
@@ -37,7 +36,7 @@ playerSelection2.innerText = "Turno di X";
 let playerSelection3 = document.querySelector("#name");
 playerSelection3.appendChild(playerSelection2);
 
-function winAlgorithm() {
+function winAlgorithm(part) {
     gameboard;
     //let playerDecision = prompt("Scegliere se sei X o O", "X");
     playerSelection += 1;
@@ -100,7 +99,42 @@ function winAlgorithm() {
                 gameboard.game[2][2] = xMarker;
             }
         }*/
-
+        if ( logicalBoard[0] === part ) {
+            checkIfNothing(0, 0);
+            gameboard.game[0][0] = xMarker;
+        }
+        else if ( logicalBoard[1] === part ) {
+            checkIfNothing(0, 1);
+            gameboard.game[0][1] = xMarker;
+        }
+        else if ( logicalBoard[2] === part ) {
+            checkIfNothing(0, 2);
+            gameboard.game[0][2] = xMarker;
+        }
+        else if ( logicalBoard[3] === part ) {
+            checkIfNothing(1, 0);
+            gameboard.game[1][0] = xMarker;
+        }
+        else if ( logicalBoard[4] === part ) {
+            checkIfNothing(1, 1);
+            gameboard.game[1][1] = xMarker;
+        }
+        else if ( logicalBoard[5] === part ) {
+            checkIfNothing(1, 2);
+            gameboard.game[1][2] = xMarker;
+        }
+        else if ( logicalBoard[6] === part ) {
+            checkIfNothing(2, 0);
+            gameboard.game[2][0] = xMarker;
+        }
+        else if ( logicalBoard[7] === part ) {
+            checkIfNothing(2, 1);
+            gameboard.game[2][1] = xMarker;
+        }
+        else if ( logicalBoard[8] === part ) {
+            checkIfNothing(2, 2);
+            gameboard.game[2][2] = xMarker;
+        }
     }
 
     function oPlayer() {
@@ -142,10 +176,46 @@ function winAlgorithm() {
                 gameboard.game[2][2] = oMarker;
             }
         }*/
+        if ( logicalBoard[0] === part ) {
+            checkIfNothing(0, 0);
+            gameboard.game[0][0] = oMarker;
+        }
+        else if ( logicalBoard[1] === part ) {
+            checkIfNothing(0, 1);
+            gameboard.game[0][1] = oMarker;
+        }
+        else if ( logicalBoard[2] === part ) {
+            checkIfNothing(0, 2);
+            gameboard.game[0][2] = oMarker;
+        }
+        else if ( logicalBoard[3] === part ) {
+            checkIfNothing(1, 0);
+            gameboard.game[1][0] = oMarker;
+        }
+        else if ( logicalBoard[4] === part ) {
+            checkIfNothing(1, 1);
+            gameboard.game[1][1] = oMarker;
+        }
+        else if ( logicalBoard[5] === part ) {
+            checkIfNothing(1, 2);
+            gameboard.game[1][2] = oMarker;
+        }
+        else if ( logicalBoard[6] === part ) {
+            checkIfNothing(2, 0);
+            gameboard.game[2][0] = oMarker;
+        }
+        else if ( logicalBoard[7] === part ) {
+            checkIfNothing(2, 1);
+            gameboard.game[2][1] = oMarker;
+        }
+        else if ( logicalBoard[8] === part ) {
+            checkIfNothing(2, 2);
+            gameboard.game[2][2] = oMarker;
+        }
     }
 
     function checkIfNothing(row, column) {
-        if ( gameboard.game[(row - 1)][(column - 1)] != nothing ) {
+        if ( gameboard.game[row][column] != nothing ) {
             alert("Non puoi cambiare un marker gia messo! Adesso dovrai rimetterlo in una posizione vuota");
             winAlgorithm();
         }
@@ -214,8 +284,4 @@ function winAlgorithm() {
         }
     }
     xoWin();
-}
-
-function domGame() {
-    
 }
