@@ -1,16 +1,17 @@
+let logicalBoard = ["", "", "", "", "", "", "", "", ""];
 const displayBoard = (function() {
     let partContainer = document.querySelector("#container");
     for ( let i = 1; i <= 9; i++ ) {
         let part = document.createElement("div");
         part.classList.add("block");
         part.setAttribute("id", "blockId");
+        logicalBoard[i - 1] = part;
         partContainer.appendChild(part);
         part.addEventListener("click", () => {
             domGame();
             winAlgorithm();
         });
     }
-
 })();
 
 const nothing = "vuoto";
@@ -30,25 +31,43 @@ let gameboard = {
 
 // let X = new Player("X");
 // let O = new Player("O");
+let playerSelection = 0;
+let playerSelection2 = document.createElement("div");
+playerSelection2.innerText = "Turno di X";
+let playerSelection3 = document.querySelector("#name");
+playerSelection3.appendChild(playerSelection2);
 
 function winAlgorithm() {
     gameboard;
-    let playerDecision = prompt("Scegliere se sei X o O", "X");
+    //let playerDecision = prompt("Scegliere se sei X o O", "X");
+    playerSelection += 1;
     
-    if ( playerDecision == "X" ) {
+    if ( playerSelection == 1 ) {
+        playerSelection2.innerText = "Turno di O";
+        playerSelection3.appendChild(playerSelection2);
+        xPlayer();
+    }
+    else {
+        playerSelection = 0;
+        playerSelection2.innerText = "Turno di X";
+        playerSelection3.appendChild(playerSelection2);
+        oPlayer();
+    }
+
+    /*if ( playerDecision == "X" ) {
         xPlayer();
     }
     else {
         oPlayer();
-    }
+    }*/
 
     function xPlayer() {
-        let placementRow = prompt("Scegli la riga (1, 2, 3)", 1);
-        placementRow = Number(placementRow);
-        let placement = prompt("Scegli la posizione (1, 2, 3)", 1);
-        placement = Number(placement);
-        checkIfNothing(placementRow, placement);
-        if ( placementRow === 1 ) {
+        //let placementRow = prompt("Scegli la riga (1, 2, 3)", 1);
+        //placementRow = Number(placementRow);
+        //let placement = prompt("Scegli la posizione (1, 2, 3)", 1);
+        //placement = Number(placement);
+        //checkIfNothing(placementRow, placement);
+        /*if ( placementRow === 1 ) {
             if ( placement === 1 ) {
                 gameboard.game[0][0] = xMarker;
             }
@@ -80,16 +99,17 @@ function winAlgorithm() {
             else if ( placement === 3 ) {
                 gameboard.game[2][2] = xMarker;
             }
-        }
+        }*/
+
     }
 
     function oPlayer() {
-        let placementRow = prompt("Scegli la riga (1, 2, 3)", "1");
-        placementRow = Number(placementRow);
-        let placement = prompt("Scegli la posizione (1, 2, 3)", "1");
-        placement = Number(placement);
-        checkIfNothing(placementRow, placement);
-        if ( placementRow === 1 ) {
+        //let placementRow = prompt("Scegli la riga (1, 2, 3)", "1");
+        //placementRow = Number(placementRow);
+        //let placement = prompt("Scegli la posizione (1, 2, 3)", "1");
+        //placement = Number(placement);
+        //checkIfNothing(placementRow, placement);
+        /*if ( placementRow === 1 ) {
             if ( placement === 1 ) {
                 gameboard.game[0][0] = oMarker;
             }
@@ -121,7 +141,7 @@ function winAlgorithm() {
             else if ( placement === 3 ) {
                 gameboard.game[2][2] = oMarker;
             }
-        }
+        }*/
     }
 
     function checkIfNothing(row, column) {
