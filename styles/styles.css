@@ -1,12 +1,31 @@
+* {
+    font-family: roboto, system-ui;
+}
+
 #container {
     display: grid;
     grid-template-columns: repeat(3, 100px);
     grid-template-rows: repeat(3, 100px);
     gap: 1px;
+    justify-content: center;
 }
 
 #container > .block {
     border: 3px solid rgb(30, 30, 30);
     padding: 10px;
-    font-size: 26px;
+    font-size: 50px;
+    text-align: center;
+}
+
+#name {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 50px 50px;
+}
+
+.show {
+    font-size: 20px;
+    padding: 10px;
+    margin: 10px;
+    font-weight: 650;
 }
